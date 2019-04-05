@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+<head>
+    
+     
+    <title><%= yield(:title) %> | Diplodocus Book Store</title>
+   
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+
+
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+
+</head>
+
+
+
+
+
+
+<body>
+  
+  
+<div class="wrapper"> 
+     
+  <div class="header">
+ 
+      <ul>
+        <li><%= link_to "Home",  "/" %></li>
+        <li><%= link_to "Products", "/items" %></li>
+      
+      <div class="header_right">
+      
+    
+        <% if session[:login] ==1 %>
+          <li><%= link_to "Log Out",   logout_path %></li>
+        <% else %> 
+          <li><%= link_to "Log In",   login_path %></li>
+        <% end %>
+    
+          <li><%= link_to "Contact", contact_path %></li>
+          <li><%= link_to "Help", help_path %></li>
+          <li><%= link_to "View Cart", "/cart" %></li>
+          
+
+      
+      </div>
+
+      </ul>
+
+
+  </div>
+
+
+
+
+
+    <div id="topBanner">
+
+
+    </div>
+
+
+  
+
+    <%= yield %>
+  
+  
+  
+
+
+    <div id="bottomBanner">
+  
+  
+    </div>
+
+
+
+
+</div>
+
+
+
+
+<footer class="footer">
+<h1>Im the Footer</h1>
+<a href="/cart/clear" class="button">Clear Cart</a>
+</footer>
+
+    
+    
+
+
+    
+    
+  </body>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</html>
