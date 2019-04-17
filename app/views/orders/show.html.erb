@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<div class="mainCont">
+<p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user.email %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Order Id:</strong>
+  <%= @order.id %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
+</div>
+<br><br>
+
+<div class="mainCont">
+  <h1>Items in this order are</h1>
+  <table id="customers">
+    <% @orderitems.each do |orderitem| %>
+     <% @total = 0 %>
+    <tr>
+      <td>
+      <%= orderitem.order_id %></td>
+      <td>
+      <%= orderitem.id %>
+      </td>
+      <td><%= orderitem.title %></td>
+      <td><%= orderitem.quantity %></td>
+      <td><%= orderitem.price %></td>
+      <% linetotal =(orderitem.quantity * orderitem.price) %>
+    <% @total += linetotal %>
+     <td>Total price: <%= @total %></td>
+      </tr>
+    
+
+    
+    <% end %>
+    
+          <tr>
+        <% shipping = 20 %>
+        <% @grandtotal = shipping + @total %>
+        <td>Shipping &euro;20</td>
+        <td>Total payable today is: &euro;<%= @grandtotal %></td>
+        </tr>
+  </table>
+  </div>
+  

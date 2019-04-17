@@ -1,0 +1,29 @@
+<div id="product_container">
+  
+    <h1>New Arrivals </h1>
+     
+      <% @items.limit(3).each do |item| %>
+      
+      <div class="product_holder">
+       <%= link_to (image_tag item.image_url, :class => "product_holderIm"), item %>
+       <h2><%= item.title %></h2>
+       <br>
+  
+       
+        <%= link_to 'View',  item, :class => "button", :role => "button" %>
+         
+        
+       
+        
+      </div>
+      
+    <% end %>
+      
+</div>
+
+
+
+
+<br>
+
+

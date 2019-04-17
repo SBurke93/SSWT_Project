@@ -6,20 +6,28 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
   end
+  
+  
 
   # GET /items/1
   # GET /items/1.json
   def show
   end
+  
+  
 
   # GET /items/new
   def new
     @item = Item.new
   end
+  
+  
 
   # GET /items/1/edit
   def edit
   end
+  
+  
 
   # POST /items
   # POST /items.json
@@ -36,6 +44,8 @@ class ItemsController < ApplicationController
       end
     end
   end
+  
+  
 
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
@@ -50,6 +60,10 @@ class ItemsController < ApplicationController
       end
     end
   end
+  
+  
+  
+  
 
   # DELETE /items/1
   # DELETE /items/1.json
@@ -61,6 +75,18 @@ class ItemsController < ApplicationController
     end
   end
 
+
+
+
+
+  #  SEARCH - 
+  def search
+     searchterm = "%#{params[:searchbox]}%" 
+     @items = Item.where("title like ?", searchterm)
+      
+  end
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -69,6 +95,8 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:category_id, :title, :description, :price, :image_url)
+      params.require(:item).permit(:category, :title, :description, :price, :image_url)
     end
+    
+    
 end

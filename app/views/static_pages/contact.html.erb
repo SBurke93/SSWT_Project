@@ -1,129 +1,77 @@
 
 <% provide(:title, "Contact")%>
 
-<h1>CONTACT</h1>
+
+<div class="logo">
+
+        <h1>Contact<br> Us.</h1>
+
+      </div>
 
 
 
-                                
+<div class="contact-box">
+ 
+<div id="form-left">
+    <form action="/action_page.php" autocomplete="on">
 
 
+    Name <br>
+    <input name="firstname" type="text" placeholder="input...">
+    <br>
+    <br>
 
-<body>
+    Email <br>
+    <input  name="emailaddress"type="email" placeholder="input...">
+    <br>
+    
 
-    <div class="bg-contact3" style="background-image: url('images/book-t2.jpg');">
-        <div class="container-contact3">
-            <div class="wrap-contact3">
-                <form class="contact3-form validate-form">
-                    <span class="contact3-form-title">
-                        Contact Us
-                    </span>
-
-                    <div class="wrap-contact3-form-radio">
-                        <div class="contact3-form-radio m-r-42">
-                            <input class="input-radio3" id="radio1" type="radio" name="choice" value="question" checked="checked">
-                            <label class="label-radio3" for="radio1">
-                                Have a question?
-                            </label>
-                        </div>
-
-                        <div class="contact3-form-radio">
-                            <input class="input-radio3" id="radio2" type="radio" name="choice" value="free">
-                            <label class="label-radio3" for="radio2">
-                                Get your free book.
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="wrap-input3 validate-input" data-validate="Name is required">
-                        <input class="input3" type="text" name="name" placeholder="Your Name">
-                        <span class="focus-input3"></span>
-                    </div>
-
-                    <div class="wrap-input3 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input class="input3" type="text" name="email" placeholder="Your Email">
-                        <span class="focus-input3"></span>
-                    </div>
-
-                    <div class="wrap-input3 input3-select">
-                        <div>
-                            <select class="selection-2" name="service">
-                                <option>Skethcbook</option>
-                                <option>Guestbook</option>
-                                <option>Photo Album</option>
-                                <option>Lucky Dip</option>
-                            </select>
-                        </div>
-                        <span class="focus-input3"></span>
-                    </div>
-
-                    <div class="wrap-input3 input3-select">
-                        <div>
-                            <select class="selection-2" name="budget">
-                                <option>Size</option>
-                                <option>A6</option>
-                                <option>A5</option>
-                                <option>A4</option>
-                            </select>
-                        </div>
-                        <span class="focus-input3"></span>
-                    </div>
-
-                    <div class="wrap-input3 validate-input" data-validate = "Message is required">
-                        <textarea class="input3" name="message" placeholder="Your Message"></textarea>
-                        <span class="focus-input3"></span>
-                    </div>
-
-                    <div class="container-contact3-form-btn">
-                        <button class="contact3-form-btn">
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    Gender <br>
+    <input name="gender" type="radio">Male <br>
+    <input name="gender" type="radio">Female
+    <br>
+    
+  
+    Choose your free book <br>
+    <select name="books">
+    <option value="guest">Guest Book</option>
+    <option value="sketch">Sketch Book</option>
+    <option value="journal">Journal</option>
+    <option value="photo">Photo Album</option>
+    <option value="random">Lucky Dip</option>
+    </select>
+    <br>  
+    
 
 
-    <div id="dropDownSelect1"></div>
+    Whats your favorite colour?<br>
+    <input name="favcolor" type="color" value="#FFD14F">
 
-<!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script>
-        $(".selection-2").select2({
-            minimumResultsForSearch: 20,
-            dropdownParent: $('#dropDownSelect1')
-        });
-    </script>
-<!--===============================================================================================-->
-    <script src="js/main.js"></script>
+    <br>
+    
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
+    Mobile: <br>
+    <input type="tel" name="usrtel" placeholder="+353 87 ***">
+    <br>
+    
+  </form>
+</div>
 
 
+<div id="form-right">
 
 
+    <form action="/action_page.php" autocomplete="on">
+    Leave your Feedback<br>
+    <textarea name="message" rows="20" cols="36" placeholder="Dont hold back, be honest..."></textarea>
+    <br>
+    <br>
+    <br>   <a href="/validate/" class="button2"> Submit</a>
+
+    </form>
 
 
-
-
-
-
-
-<div id="container">
+</div>
 
 
 
@@ -131,7 +79,13 @@
 
 
 
+</div>
+<div class="mainCont">
 
+<%= render 'layouts/popularproducts' %>
+                  <br>
+                 
+</div>
 <div id="container2">
 
 
