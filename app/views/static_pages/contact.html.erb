@@ -3,94 +3,80 @@
 
 
 <div class="logo">
-
-        <h1>Contact<br> Us.</h1>
-
-      </div>
-
-
-
-<div class="contact-box">
- 
-<div id="form-left">
-    <form action="/action_page.php" autocomplete="on">
-
-
-    Name <br>
-    <input name="firstname" type="text" placeholder="input...">
-    <br>
-    <br>
-
-    Email <br>
-    <input  name="emailaddress"type="email" placeholder="input...">
-    <br>
-    
-
-    Gender <br>
-    <input name="gender" type="radio">Male <br>
-    <input name="gender" type="radio">Female
-    <br>
-    
-  
-    Choose your free book <br>
-    <select name="books">
-    <option value="guest">Guest Book</option>
-    <option value="sketch">Sketch Book</option>
-    <option value="journal">Journal</option>
-    <option value="photo">Photo Album</option>
-    <option value="random">Lucky Dip</option>
-    </select>
-    <br>  
-    
-
-
-    Whats your favorite colour?<br>
-    <input name="favcolor" type="color" value="#FFD14F">
-
-    <br>
-    
-
-    Mobile: <br>
-    <input type="tel" name="usrtel" placeholder="+353 87 ***">
-    <br>
-    
-  </form>
-</div>
-
-
-<div id="form-right">
-
-
-    <form action="/action_page.php" autocomplete="on">
-    Leave your Feedback<br>
-    <textarea name="message" rows="20" cols="36" placeholder="Dont hold back, be honest..."></textarea>
-    <br>
-    <br>
-    <br>   <a href="/validate/" class="button2"> Submit</a>
-
-    </form>
-
-
+<h1>Contact<br> Us.</h1>
 </div>
 
 
 
-</div>
+        <div class="contact-box">
+                 <div id="form-left">
+                    <form action="/action_page.php" autocomplete="on">
+                    Name <br>
+                    <input name="firstname" type="text" placeholder="input...">
+                    <br>
+                    <br>
 
-
-
-</div>
-<div class="mainCont">
-
-<%= render 'layouts/popularproducts' %>
-                  <br>
-                 
-</div>
-<div id="container2">
-
-
+                    Email <br>
+                    <input  name="emailaddress"type="email" placeholder="input...">
+                    <br>
     
+
+                    Gender <br>
+                    <input name="gender" type="radio">Male <br>
+                    <input name="gender" type="radio">Female
+                    <br>
+    
+                    Choose your free book <br>
+                    <select name="books">
+                    <option value="guest">Guest Book</option>
+                    <option value="sketch">Sketch Book</option>
+                    <option value="journal">Journal</option>
+                    <option value="photo">Photo Album</option>
+                    <option value="random">Lucky Dip</option>
+                    </select>
+                    <br>  
+    
+                    Whats your favorite colour?<br>
+                    <input name="favcolor" type="color" value="#FFD14F">
+                    <br>
+    
+                    Mobile: <br>
+                    <input type="tel" name="usrtel" placeholder="+353 87 ***">
+                    <br>
+    
+                    </form>
+        </div>
+
+
+                <div id="form-right">
+
+
+                    <form action="/action_page.php" autocomplete="on">
+                    Leave your Feedback<br>
+                    <textarea name="message" rows="20" cols="36" placeholder="Dont hold back, be honest..."></textarea>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="/validate/" class="button2"> Submit</a>
+                    </form>
+                    </div>  
+                </div>
+
+
+
 </div>
+                <div class="mainCont">
+                    <br>
+                    <br>
+                    <br>
+                    <%= render 'layouts/popularproducts' %>
+                    <br>
+                </div>
+        
+        
+        
+                <div id="container2">
+                </div>
 
 
 

@@ -1,17 +1,26 @@
-    <div class="wrapper">
+ <% provide(:title, "Home") %>
+ 
+ 
+ 
+ 
+ <p id="notice"><%= notice %></p> 
+   
+   
+   <div class="wrapper">
         
-            <div class="logo">
-            <h1>Diplodocus <br> Books.</h1>
-            </div>
+                <div class="logo">
+                <h1>Diplodocus <br> Books.</h1>
+                </div>
       
-            <div class="cta">
-            <p><strong>Welcome</strong>. We create custom hand-bound books, sourcing materials from around the Globe.</p>
-            <p>Don't waste time! Get your <strong>FREE</strong> limited edition custom hand-bound book. All you have to do is <strong>say hi.</strong></p>
-            <a href="contact.html" class="button">Get Yours</a>
-            </div>
-            <div class="dinosaur">
+                <div class="cta">
+                <p><strong>Welcome</strong>. We create custom hand-bound books, sourcing materials from around the Globe.</p>
+                <p>Don't waste time! Get your <strong>FREE</strong> limited edition custom hand-bound book. All you have to do is <strong>say hi.</strong></p>
+                <a href="contact.html" class="button">Get Yours</a>
+                </div>
+                
+                <div class="dinosaur">
                 <%= image_tag("cccc.png" , :size => "500x350") %>
-            </div>
+                </div>
     </div>
     
 
@@ -19,13 +28,15 @@
 
 
                 <div class="mainCont">  
+                
                     <%= render 'layouts/search' %>
-                    <%= render 'layouts/popularproducts' %>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
                     <%= render 'layouts/categories' %>
+                    <br>
+                    <br>
+                    <%= render 'layouts/popularproducts' %>
+                    <br>
+                    <br>
+                    
                 </div>
 
  

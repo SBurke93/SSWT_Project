@@ -1,0 +1,25 @@
+
+
+<% provide(:title, "Admin") %>
+
+<div id="product_container">
+    
+    
+    
+                <h1>Please leave at least one relevent Admin to look after our new apllication :)</h1>
+
+                <% @users.each do |user| %>
+      
+                    <div class="product_holder">
+                    <h3>User ID:<%= user.id %></h3>
+                    <h3> User email:<%= user.email %></h3>
+                    <h3> Admin:<%= user.admin %></h3>
+                    <p><a href="/upgrade/<%= user.id %>" class="button">Make Admin</a></p>
+                    <p><a href="/downgrade/<%= user.id %>" class="button">Demote</a></p>
+          
+                    </div>
+        
+                <% end %>
+
+
+</div>

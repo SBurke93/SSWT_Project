@@ -1,54 +1,75 @@
+
+
+
+
 <div class="mainCont">
-<h2>Thank you</h2>
+                <h1>Checkout:</h1>
+                <table id="customers">
+                <tr>
+                <% @orders.limit(1).order(id: :desc).each do |order| %>
+    
+                <td>Your Order Number is: <%= order.id %></td>
+                <% end %>
+                </tr>
+                </table>
+                <br>
+
+
+            <table id="customers">
+    
+                <thead>
+                <tr>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th colspan="4"></th>
+                </tr>  
+                </thead>
+            
+                <% @total = 0 %>
+    
+                <% @orderitems.each do |id, quantity| %>
+                <tr>
+                <% item = Orderitem.find_by_id(id) %>
+    
+                <td><%= item.title %></td>
+                <td><%= item.quantity %></td>
+                <td><%= number_to_currency(item.price, :unit=>"€") %></td>
+                <td><%= number_to_currency(item.quantity * item.price, :unit=>"€") %></td>
+                </tr>
+                <% linetotal =(item.quantity * item.price) %>
+                <% @total += linetotal %>
+            
+                <% end %>
+                <br>
+            </table>
+    
+    
+    
+    
+            <table id="customers">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <tr>
+                    <td>Order Total: &euro; <%= @total %></td>
+                    <td>  <% shipping = 25 %></td>
+                    <td><% @grandtotal = shipping + @total %></td><br>
+                    <td>Shipping &euro;25</td><br>
+                    </tr>
+            </table>
 
 
 
-<table id="customers">
-    <tr>
-    <% @orders.limit(1).order(id: :desc).each do |order| %>
-    
-    <td>Order you just placed is <%= order.id %></td>
-    <% end %>
-    
-    </tr>
-    
-</table>
+
+                    <div class="mainCont">
+                        <h2>Your Total payable today is: &euro;<%= @grandtotal %></h2>
+                        <a href="/paid/<%= @order.id %>" class="button">Pay For Me!</a>
+                    </div>
 
 
-<table id="customers">
-    <% @total = 0 %>
-    
-    <% @orderitems.each do |id, quantity| %>
-    <tr>
-    <% item = Orderitem.find_by_id(id) %>
-    
-    <td><%= item.title %></td>
-    <td><%= item.quantity %></td>
-    <td><%= number_to_currency(item.price, :unit=>"€") %></td>
-    <td><%= number_to_currency(item.quantity * item.price, :unit=>"€") %></td>
-    
-    </tr>
-    
-    <% linetotal =(item.quantity * item.price) %>
-    <% @total += linetotal %>
-    <% end %>
-    
-    <tr>
-        <td>Order Total: &euro; <%= @total %></td>
-        
-    </tr>
-    
-    <tr>
-        <% shipping = 25 %>
-        <% @grandtotal = shipping + @total %>
-        <td>Shipping &euro;25</td>
-        <td>Your Total payable today is: &euro;<%= @grandtotal %></td>
-        </tr>
-</table>
-
-  <div class="mainCont">
-    <a href="/paid/<%= @order.id %>" class="button">Pay For Me!</a>
-    </div>
 
 
 

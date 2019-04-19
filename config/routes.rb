@@ -60,6 +60,14 @@ Rails.application.routes.draw do
  
  get '/cart/decrease/:id' => 'cart#decrease'
  
+ 
+ 
+ get '/showuser' => 'static_pages#allusers'
+ get '/upgrade/:id' => 'static_pages#upgrade'
+ get '/downgrade/:id' => 'static_pages#downgrade'
+ 
+ 
+ 
  get '/cart' => 'cart#index'
  # get 'static_pages/home'
  # get 'static_pages/help'

@@ -6,6 +6,7 @@ class CartController < ApplicationController
     # we need the id of the product to be added
     # lets get it now
     
+    
     id = params[:id]
     # if the cart exists already use it if not make a new one
     if session[:cart] then
@@ -16,13 +17,15 @@ class CartController < ApplicationController
     end
     
     # If the product is in the cart then increase the existing quantity by 1
-     if cart[id] then
+    if cart[id] then
      cart[id] = cart[id] + 1 # this is the actual increase quantity part
-  else
+      else
      cart[id] = 1
-  end
-  redirect_to :action => :index
-end 
+    end
+    
+     redirect_to :action => :index
+  
+  end 
   
   
   ######## Clear Cart ###############

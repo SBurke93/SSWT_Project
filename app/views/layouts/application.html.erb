@@ -2,8 +2,8 @@
 <html>
   
 <head>
-    
-  <title><%= yield(:title) %> | Diplodocus Book Store</title>
+         
+      <title><%= yield(:title) %> | Diplodocus Book Store</title>
    
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
@@ -14,106 +14,104 @@
 
 </head>
 
-<body>
-  
-  
-  
 
+<body>
      
         <div class="header">
     
-            <%= image_tag("logo/dddd.jpg" , :size => "80x55") %>
+                <%= image_tag("logo/dddd.jpg" , :size => "80x55") %>
      
      
      
      
-          <ul>
+                <ul>
                 <li><%= link_to "Home", root_path %></li>
                 <li><%= link_to "Products", "/items" %></li>
                 <li><%= link_to "Contact", contact_path %></li>
                 <li><%= link_to "Help", help_path %></li>
-                <li><%= link_to "Orders", "/orders" %></li>
+                
            
                   
-          <div class="header_right">
+            <div class="header_right">
             
-              <% if user_signed_in? %>
+                <% if user_signed_in? %>
               
                 <div id= "user_email"><li><a href="#">Hi <%= current_user.email %></a></li>
                 <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
                 <li><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></li>
-                </div>
-              <% else %>
+                </div> 
+                <li><%= link_to "Orders", "/orders" %></li>
+                <li><%= link_to "View Cart", "/cart" %></li>
+                <% else %>
                 <li><%= link_to 'Register', new_user_registration_path %></li>
                 <li><%= link_to 'Sign in', new_user_session_path %></li>
-              <% end %>
-              
-                <% if session[:login] == 1 %>
-                 <li><%= link_to "Admin Logout", logout_path %></li>
-                <% else %>
-                 <li><%= link_to "Admin Login", login_path %></li>
                 <% end %>
-                
-                  
-                  <li><%= link_to "View Cart", "/cart" %></li>
+        
+                 
                   
             
-          </div>
-          </ul>
-        </div>
+                </div>
+                </ul>
+                </div>
 
    
 
     
-        <div id="topBanner">
-          <%= yield %>
-        </div>
+                      <div id="topBanner">
+                                  <%= yield %>
+                      </div>
 
 
 
-   <!-- <div class="footer">
-        <div id="container-l">
-    <div class="mainCont">
-    <form name="signUp" action="/form_validation">
-          Newsletter: <br>
-          <input type="email" placeholder="Enter your email">
-          <input type="submit" class="button2" value="Sign up">
-          </form>
-         <button onclick ="sayHi()">Test</button>
-        
-             
-     
-     
-           </div>
-        </div>
+
+
+
+
+
+
+  <div class="footer">
+                <div id="container-l">
+                <div class="mainCont">
+                <form name="signUp" action="/form_validation">
+                Newsletter: <br>
+                <input type="email" placeholder="Enter your email">
+                <a href="/validate/" class="button2"> Submit</a>
+                </form>
+              
+                <button onclick ="sayHi()" class="button2">Test</button>
+       
+                </div>
+                </div>
   
-        <div id="container-r">
+  
+                <div id="container-r">
           
-          <a href="/cart/clear" class="button2">Clear Cart</a> 
+                <a href="/cart/clear" class="button2">Clear Cart</a> 
           
+                <% if user_signed_in? %>
+                <% if current_user.admin? %>
+          
+                <a href="/showuser" class="button2">Admin Access</a> 
+                <%= link_to 'New Item', new_item_path, :class =>"button2", :role=>"button" %>
+                <%= link_to 'New Category', new_category_path, :class =>"button2" %>
+                
+                <% end %>   
+                <% end %>
   
-            <% if session[:login] == 1 %>
-              <%= link_to 'New Item', new_item_path, :class =>"button2", :role=>"button" %>
-              <%= link_to 'New Category', new_category_path, :class =>"button2" %>
-            <% end %>
   
-          <div class="social">
+              <div class="social">
               <a href="https://www.instagram.com/diplodocusbooks/"  target="_blank" class="sm_icon"><img src="images/sm/fb.png" height="50" width="50"></a>
               <a href="https://www.instagram.com/diplodocusbooks/" target="_blank" class="sm_icon"><img src="images/sm/ig.png" height="50" width="50"></a>
               <a href="https://www.instagram.com/diplodocusbooks/" target="_blank" class="sm_icon"><img src="images/sm/tw.png" height="50" width="50"></a>
-            <a href="https://www.instagram.com/diplodocusbooks/" target="_blank" class="sm_icon"><img src="images/sm/snap.png" height="50" width="50"></a>
-          </div>
-    
-          
-          <br>
-        
-          <p>&copy; Web Design and Development. Copyright | 2019 All Rights Reserved.</p>
-    
-        </div>
+              <a href="https://www.instagram.com/diplodocusbooks/" target="_blank" class="sm_icon"><img src="images/sm/snap.png" height="50" width="50"></a>
+              </div>
+              <br>
+              <p>&copy; SSWT e-commerce application build. Copyright | 2019 All Rights Reserved.</p>
+              </div>
 
- -->
-
-   
+  </div>
+  
+  
 </body>
   
   

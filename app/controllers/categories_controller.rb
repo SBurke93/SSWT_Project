@@ -37,6 +37,8 @@ class CategoriesController < ApplicationController
     end
   end
 
+
+
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
@@ -50,6 +52,8 @@ class CategoriesController < ApplicationController
       end
     end
   end
+  
+  
 
   # DELETE /categories/1
   # DELETE /categories/1.json
@@ -60,6 +64,8 @@ class CategoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

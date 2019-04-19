@@ -5,19 +5,13 @@
 
 
 <div id="topBanner">
-  <div id="product_container">
-  
-    <div class="show_item">
+      <div id="product_container">
+      <div class="show_item">
       <h1><%= @item.title %></h1>
-      
-      
-        <%= image_tag @item.image_url, :class => 'showIm' %>
+      <%= image_tag @item.image_url, :class => 'showIm' %>
 
-       <h1>Price <%= number_to_currency(@item.price, :unit => "€") %></h1>
+      <h1>Price <%= number_to_currency(@item.price, :unit => "€") %></h1>
        
-       
-          
-        
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
@@ -27,24 +21,29 @@
 
         <br>
         <div class="itemDesc">
-                <%= @item.description %>
+        <%= @item.description %>
         </div>
         <br>
-         Category: <%= @item.category %>
-         <br>
+        Category: <%= @item.category %>
+        <br>
          
        
           
         
-                    <%= link_to 'Back',  items_path, :class => "button", :role => "button" %>
-                    <a href="/cart/<%= @item.id %>" class="button">Add to Cart</a>
-                <% if session[:login] == 1 %>
+              <%= link_to 'Back',  items_path, :class => "button", :role => "button" %>
+              <a href="/cart/<%= @item.id %>" class="button">Add to Cart</a>
+                    
+                    
+              <% if user_signed_in? %>
+              <% if current_user.admin? %>
                     <%= link_to 'Edit',  edit_item_path(@item), :class => "button", :role => "button" %>
-                <% end %>
+              <% end %>
+              <% end %>
+              
+              
       </div>
   </div>
-
-    </div>
+</div>
 
 
 

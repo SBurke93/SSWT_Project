@@ -1,36 +1,52 @@
 <p id="notice"><%= notice %></p>
-<div class="mainCont">
-<p>
-  <strong>Order date:</strong>
-  <%= @order.order_date %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user.email %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @order.status %>
-</p>
-
-<p>
-  <strong>Order Id:</strong>
-  <%= @order.id %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
-</div>
-<br><br>
 
 <div class="mainCont">
-  <h1>Items in this order are</h1>
-  <table id="customers">
-    <% @orderitems.each do |orderitem| %>
-     <% @total = 0 %>
-    <tr>
+    <p>
+    <strong>Order date:</strong>
+    <%= @order.order_date %>
+    </p>
+
+    <p>
+    <strong>User:</strong>
+    <%= @order.user.email %>
+    </p>
+
+    <p>
+    <strong>Status:</strong>
+    <%= @order.status %>
+    </p>
+
+    <p>
+    <strong>Order Id:</strong>
+    <%= @order.id %>
+    </p>
+
+    <%= link_to 'Edit', edit_order_path(@order) %> |
+    <%= link_to 'Back', orders_path %>
+    </div>
+    <br><br>
+
+    <div class="mainCont">
+      <h1>Items in this order are:</h1>
+      <table id="customers">
+    
+      <thead>
+      <tr>
+      <th>Order ID</th>
+      <th>Item ID</th>
+      <th>Title</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th colspan="6"></th>
+      </tr>
+      </thead>
+    
+    
+      <% @orderitems.each do |orderitem| %>
+      <% @total = 0 %>
+      <tr>
       <td>
       <%= orderitem.order_id %></td>
       <td>
@@ -40,20 +56,35 @@
       <td><%= orderitem.quantity %></td>
       <td><%= orderitem.price %></td>
       <% linetotal =(orderitem.quantity * orderitem.price) %>
-    <% @total += linetotal %>
-     <td>Total price: <%= @total %></td>
+      <% @total += linetotal %>
+      <td><%= @total %></td>
       </tr>
     
 
-    
-    <% end %>
-    
-          <tr>
-        <% shipping = 20 %>
+      <br>
+<% end %>
+
+</table> 
+
+
+  
+      <br><br>
+      
+<table id="customers">
+        <thead>
+        <tr>
+        <th></th>
+        <th></th>
+        <tr>
+                    
+        <tr>
+        <% shipping = 25 %>
         <% @grandtotal = shipping + @total %>
-        <td>Shipping &euro;20</td>
+        <td>Shipping &euro;25</td>
         <td>Total payable today is: &euro;<%= @grandtotal %></td>
         </tr>
-  </table>
-  </div>
+        </tr>
+</table>
+ 
+    </div>
   
